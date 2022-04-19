@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:music_player_app/player.dart';
 
+Widget musicFunc({required String title, required String age, onTap}) {
+  return Column(
+    children: [Text(title), Text(age)],
+  );
+}
+
 void main(List<String> args) {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
+    debugShowCheckedModeBanner: false,
     home: MyApp(),
   ));
 }
@@ -19,8 +26,8 @@ class _MyAppState extends State<MyApp> {
   var plybtn = Icons.play_arrow;
   String range = '';
   String start = 'hi';
-  Duration begin = new Duration();
-  Duration musicLength = new Duration();
+  Duration begin = const Duration();
+  Duration musicLength = const Duration();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,13 +37,13 @@ class _MyAppState extends State<MyApp> {
             child: Center(
               child: Column(
                 children: [
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       InkWell(
                         child: Card(
-                          shape: CircleBorder(),
+                          shape: const CircleBorder(),
                           elevation: 5,
                           child: Container(
                               height: 50,
@@ -49,7 +56,7 @@ class _MyAppState extends State<MyApp> {
                                         color: Colors.pink.shade100,
                                         blurRadius: 20)
                                   ]),
-                              child: Icon(
+                              child: const Icon(
                                 Icons.arrow_back,
                                 color: Colors.black38,
                               )),
@@ -58,10 +65,10 @@ class _MyAppState extends State<MyApp> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => player()));
+                                  builder: (context) => const Player()));
                         },
                       ),
-                      Text(
+                      const Text(
                         'Now Playing',
                         style: TextStyle(
                             fontSize: 20,
@@ -70,7 +77,7 @@ class _MyAppState extends State<MyApp> {
                       ),
                       InkWell(
                         child: Card(
-                          shape: CircleBorder(),
+                          shape: const CircleBorder(),
                           elevation: 5,
                           child: Container(
                               height: 50,
@@ -83,7 +90,7 @@ class _MyAppState extends State<MyApp> {
                                         color: Colors.pink.shade100,
                                         blurRadius: 20)
                                   ]),
-                              child: Icon(
+                              child: const Icon(
                                 Icons.menu_outlined,
                                 color: Colors.black38,
                               )),
@@ -92,7 +99,7 @@ class _MyAppState extends State<MyApp> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 60),
+                  const SizedBox(height: 60),
                   Container(
                     height: 250,
                     width: 280,
@@ -101,27 +108,27 @@ class _MyAppState extends State<MyApp> {
                           BoxShadow(blurRadius: 10, color: Colors.pink.shade200)
                         ],
                         shape: BoxShape.circle,
-                        image: DecorationImage(
+                        image: const DecorationImage(
                             image: NetworkImage(
                                 'https://cdn.sharechat.com/cartoondp_187ff5f5_1632206320012_sc_cmprsd_40.jpg'),
                             fit: BoxFit.cover)),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
-                  Text(
+                  const Text(
                     'Awesome',
                     style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
                         color: Colors.black45),
                   ),
-                  SizedBox(height: 10),
-                  Text(
+                  const SizedBox(height: 10),
+                  const Text(
                     'A Skyline',
                     style: TextStyle(fontSize: 20, color: Colors.black26),
                   ),
-                  SizedBox(height: 50),
+                  const SizedBox(height: 50),
                   Slider(
                       activeColor: Colors.pink[200],
                       inactiveColor: Colors.pink[200],
@@ -136,13 +143,13 @@ class _MyAppState extends State<MyApp> {
                       onChangeStart: (state) => setState(() {
                             state = 5;
                           })),
-                  SizedBox(height: 70),
+                  const SizedBox(height: 70),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       InkWell(
                         child: Card(
-                          shape: CircleBorder(),
+                          shape: const CircleBorder(),
                           elevation: 5,
                           child: Container(
                               height: 80,
@@ -155,14 +162,14 @@ class _MyAppState extends State<MyApp> {
                                         color: Colors.pink.shade100,
                                         blurRadius: 20)
                                   ]),
-                              child: Icon(Icons.fast_rewind,
+                              child: const Icon(Icons.fast_rewind,
                                   color: Colors.black38, size: 32)),
                         ),
                         onTap: () {},
                       ),
                       InkWell(
                         child: Card(
-                          shape: CircleBorder(),
+                          shape: const CircleBorder(),
                           elevation: 5,
                           child: Container(
                               height: 80,
@@ -175,14 +182,26 @@ class _MyAppState extends State<MyApp> {
                                         color: Colors.pink.shade100,
                                         blurRadius: 20)
                                   ]),
-                              child: Icon(Icons.play_arrow,
+                              child: Icon(plybtn,
                                   color: Colors.black38, size: 32)),
                         ),
-                        onTap: () {},
+                        onTap: () {
+                          if (!isPlaying) {
+                            setState(() {
+                              plybtn = Icons.pause;
+                              isPlaying = true;
+                            });
+                          } else {
+                            setState(() {
+                              plybtn = Icons.play_arrow;
+                              isPlaying = false;
+                            });
+                          }
+                        },
                       ),
                       InkWell(
                         child: Card(
-                          shape: CircleBorder(),
+                          shape: const CircleBorder(),
                           elevation: 5,
                           child: Container(
                               height: 80,
@@ -195,7 +214,7 @@ class _MyAppState extends State<MyApp> {
                                         color: Colors.pink.shade100,
                                         blurRadius: 20)
                                   ]),
-                              child: Icon(Icons.fast_forward,
+                              child: const Icon(Icons.fast_forward,
                                   color: Colors.black38, size: 32)),
                         ),
                         onTap: () {},
