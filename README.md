@@ -2,7 +2,9 @@
 
 A good music player project with a beautiful template screen.
 
-![doll](https://user-images.githubusercontent.com/93655628/164460009-bf27aaa6-dad7-48fa-a7a7-da96039bb295.png)
+![doll](https://user-images.githubusercontent.com/93655628/164462548-4e2a2613-0091-4e95-bccc-53ac1b60f228.png)
 
-![doll2](https://user-images.githubusercontent.com/93655628/164460135-482e8009-ff60-47e5-adc2-0dfa645fcf25.png)
+![doll2](https://user-images.githubusercontent.com/93655628/164462568-9adb2141-225e-4cfc-822e-a1f6ce26ba98.png)
+
+
 
