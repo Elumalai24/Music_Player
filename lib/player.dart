@@ -1,5 +1,10 @@
+import 'dart:core';
+
 import 'package:flutter/material.dart';
 
+var icon = Icons.play_arrow;
+//bool selected = false;
+//List<bool> works = [false, false, false, false, false];
 Widget musicDetails(String title, String singer) {
   return InkWell(
     child: Container(
@@ -16,9 +21,13 @@ Widget musicDetails(String title, String singer) {
                 Text(
                   title,
                   style: const TextStyle(
-                      fontSize: 20, fontWeight: FontWeight.bold),
+                      color: Colors.black26,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
                 ),
-                Text(singer, style: const TextStyle(fontSize: 15)),
+                Text(singer,
+                    style:
+                        const TextStyle(color: Colors.black26, fontSize: 15)),
               ],
             ),
             InkWell(
@@ -34,18 +43,31 @@ Widget musicDetails(String title, String singer) {
                         boxShadow: [
                           BoxShadow(color: Colors.pink.shade100, blurRadius: 20)
                         ]),
-                    child: const Icon(
-                      Icons.play_arrow,
+                    child: Icon(
+                      icon,
                       color: Colors.black38,
-                    )),
+                    )
+                    //IconButton(icon: Icon(icon), onPressed: () => func())
+
+                    ),
               ),
-              onTap: () {},
+              onTap: () {
+                // func( false);
+              },
             ),
           ],
         )),
     onTap: () {},
   );
 }
+
+// void func(bool) {
+//   if (hi == false) {
+//     icon = Icons.pause;
+//   } else {
+//     icon = Icons.play_arrow;
+//   }
+// }
 
 class Player extends StatefulWidget {
   const Player({Key? key}) : super(key: key);
@@ -60,6 +82,7 @@ class _PlayerState extends State<Player> {
   //IconData playIcon = Icons.play_arrow;
   late String title;
   late String singer;
+
   // late String icon;
   List listes = [
     {'title': 'Arabic Kuthu', 'singer': 'Aniruth'},
@@ -68,90 +91,91 @@ class _PlayerState extends State<Player> {
     {'title': 'Vera Mari', 'singer': 'U1'},
     {'title': 'Arakiye', 'singer': 'hipop Adhi'}
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.pink[50],
-      body: SafeArea(
-        child: Column(
-          children: [
-            const SizedBox(height: 50),
-            const Text(
-              'A Skyline-Lover',
-              style: TextStyle(fontSize: 20, color: Colors.black26),
-            ),
-            const SizedBox(height: 60),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                InkWell(
-                  child: Card(
-                    shape: const CircleBorder(),
-                    elevation: 5,
-                    child: Container(
-                        height: 50,
-                        width: 50,
-                        decoration: BoxDecoration(
-                            color: Colors.pink[50],
-                            shape: BoxShape.circle,
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Colors.pink.shade100, blurRadius: 20)
-                            ]),
-                        child: const Icon(
-                          Icons.star,
-                          color: Colors.black38,
-                        )),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: SafeArea(
+          child: Column(
+            children: [
+              const SizedBox(height: 50),
+              const Text(
+                'A Skyline-Lover',
+                style: TextStyle(fontSize: 20, color: Colors.black26),
+              ),
+              const SizedBox(height: 60),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  InkWell(
+                    child: Card(
+                      shape: const CircleBorder(),
+                      elevation: 5,
+                      child: Container(
+                          height: 50,
+                          width: 50,
+                          decoration: BoxDecoration(
+                              color: Colors.pink[50],
+                              shape: BoxShape.circle,
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.pink.shade100, blurRadius: 20)
+                              ]),
+                          child: const Icon(
+                            Icons.star,
+                            color: Colors.black38,
+                          )),
+                    ),
+                    onTap: () {},
                   ),
-                  onTap: () {},
-                ),
-                Container(
-                  height: 170,
-                  width: 220,
-                  decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(blurRadius: 10, color: Colors.pink.shade200)
-                      ],
-                      shape: BoxShape.circle,
-                      image: const DecorationImage(
-                          image: NetworkImage(
-                              'https://cdn.sharechat.com/cartoondp_187ff5f5_1632206320012_sc_cmprsd_40.jpg'),
-                          fit: BoxFit.cover)),
-                ),
-                InkWell(
-                  child: Card(
-                    shape: const CircleBorder(),
-                    elevation: 5,
-                    child: Container(
-                        height: 50,
-                        width: 50,
-                        decoration: BoxDecoration(
-                            color: Colors.pink[50],
-                            shape: BoxShape.circle,
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Colors.pink.shade100, blurRadius: 20)
-                            ]),
-                        child: const Icon(
-                          Icons.more_horiz_outlined,
-                          color: Colors.black38,
-                        )),
+                  Container(
+                    height: 170,
+                    width: 220,
+                    decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(blurRadius: 10, color: Colors.pink.shade200)
+                        ],
+                        shape: BoxShape.circle,
+                        image: const DecorationImage(
+                            image: NetworkImage(
+                                'https://cdn.sharechat.com/cartoondp_187ff5f5_1632206320012_sc_cmprsd_40.jpg'),
+                            fit: BoxFit.cover)),
                   ),
-                  onTap: () {},
-                ),
-              ],
-            ),
-            const SizedBox(height: 40),
-            Expanded(
-              child: ListView.builder(
+                  InkWell(
+                    child: Card(
+                      shape: const CircleBorder(),
+                      elevation: 5,
+                      child: Container(
+                          height: 50,
+                          width: 50,
+                          decoration: BoxDecoration(
+                              color: Colors.pink[50],
+                              shape: BoxShape.circle,
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.pink.shade100, blurRadius: 20)
+                              ]),
+                          child: const Icon(
+                            Icons.more_horiz_outlined,
+                            color: Colors.black38,
+                          )),
+                    ),
+                    onTap: () {},
+                  ),
+                ],
+              ),
+              const SizedBox(height: 40),
+              ListView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
                   itemCount: listes.length,
                   itemBuilder: (context, index) => musicDetails(
-                        listes[index]['title'],
-                        listes[index]['singer'],
-                        //  listes[index]['playIcon']
-                      )),
-            ),
-          ],
+                      listes[index]['title'], listes[index]['singer'])),
+            ],
+          ),
         ),
       ),
     );
