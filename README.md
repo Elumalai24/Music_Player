@@ -2,4 +2,4 @@
 
 A good music player project with a beautiful template screen.
 
-![](image/doll.png)
+![](image/cute.jpg)
