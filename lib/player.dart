@@ -22,7 +22,7 @@ Widget musicDetails(String title, String singer) {
                   title,
                   style: const TextStyle(
                       color: Colors.black26,
-                      fontSize: 20,
+                      fontSize: 18,
                       fontWeight: FontWeight.bold),
                 ),
                 Text(singer,
@@ -100,11 +100,15 @@ class _PlayerState extends State<Player> {
         scrollDirection: Axis.vertical,
         child: SafeArea(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(height: 50),
               const Text(
                 'A Skyline-Lover',
-                style: TextStyle(fontSize: 20, color: Colors.black26),
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black26),
               ),
               const SizedBox(height: 60),
               Row(
@@ -140,8 +144,7 @@ class _PlayerState extends State<Player> {
                         ],
                         shape: BoxShape.circle,
                         image: const DecorationImage(
-                            image: NetworkImage(
-                                'https://cdn.sharechat.com/cartoondp_187ff5f5_1632206320012_sc_cmprsd_40.jpg'),
+                            image: AssetImage('asset/cute.jpg'),
                             fit: BoxFit.cover)),
                   ),
                   InkWell(
